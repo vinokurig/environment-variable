@@ -1,0 +1,37 @@
+{
+  "name": "environment-variable-plugin",
+  "publisher": "theia",
+  "keywords": [
+    "theia-plugin"
+  ],
+  "version": "0.0.1",
+  "license": "EPL-2.0",
+  "files": [
+    "src"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "devDependencies": {
+    "@theia/plugin": "file:/home/ivinokur/projects/theia/packages/plugin",
+    "@theia/plugin-packager": "latest",
+    "rimraf": "2.6.2",
+    "typescript-formatter": "7.2.2",
+    "typescript": "2.9.2"
+  },
+  "scripts": {
+    "prepare": "yarn run clean && yarn run build",
+    "clean": "rimraf lib",
+    "format-code": "tsfmt -r",
+    "watch": "tsc -watch",
+    "compile": "tsc",
+    "build": "yarn run format-code && yarn run compile && theia-plugin pack"
+  },
+  "engines": {
+    "theiaPlugin": "next",
+    "vscode": "*"
+  },
+  "theiaPlugin": {
+    "backend": "lib/environment-variable-plugin.js"
+  }
+}
